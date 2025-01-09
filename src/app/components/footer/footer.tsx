@@ -42,11 +42,11 @@ const Footer = () => {
                 </div>
                 <div
                     className="text-black dark:text-white text-sm">
-                    © 2023 Copyright:
+                    {"© 2023 Copyright: "}
                     <a
                         className="text-neutral-800 dark:text-neutral-400"
                         href="https://tw-elements.com/"
-                    >TW Elements</a>
+                    >GPS TRACKER</a>
                 </div>
             </div>
         </footer>
