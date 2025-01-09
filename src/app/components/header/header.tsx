@@ -6,7 +6,6 @@ import {
   DialogPanel,
   Disclosure,
   DisclosureButton,
-  DisclosurePanel,
   Popover,
   PopoverGroup,
   PopoverPanel,
@@ -41,10 +40,30 @@ const Header = () => {
     <header className="bg-white">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="#" className="-m-1.5 p-1.5 flex items-center gap-x-2">
+            <h1 className="text-xl uppercase">Gps Tracker</h1>
             <span className="sr-only">Your Company</span>
-            <h1 className="text-xl uppercase">GPS</h1> 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
           </a>
+
         </div>
         <div className="flex lg:hidden">
           <button
@@ -95,15 +114,14 @@ const Header = () => {
               </div>
             </PopoverPanel>
           </Popover>
-
+          <a href="#" className="text-sm/6 font-semibold text-gray-900">
+            Home
+          </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Features
           </a>
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Marketplace
-          </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Company
+            Faq
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -141,7 +159,7 @@ const Header = () => {
                     Product
                     <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
                   </DisclosureButton>
-                                  </Disclosure>
+                </Disclosure>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"

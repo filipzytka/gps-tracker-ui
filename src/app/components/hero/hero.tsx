@@ -9,7 +9,7 @@ const Hero = () => {
           className="overflow-hidden blur-3xl"
         >
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl py-8 sm:py-12 lg:py-16">
           <div className="text-center">
             <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
               Data to enrich your online business
