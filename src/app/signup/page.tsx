@@ -5,11 +5,6 @@ const SignUp = () => {
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img
-                        alt="Your Company"
-                        src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                        className="mx-auto h-10 w-auto"
-                    />
                     <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
                         Create a new account
                     </h2>
@@ -86,7 +81,7 @@ const SignUp = () => {
                     </p>
                     <p className="mt-10 text-center text-sm/6 text-gray-500">
                         <Link href="/" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                            Home page
+                            Go back to home page
                         </Link>
                     </p>
                 </div>

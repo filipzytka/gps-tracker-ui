@@ -4,17 +4,18 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import CustomAccordion from "./components/accordion/accordion";
 import { accordionData, features } from "./data";
+import Link from "next/link";
 
-export default  function Home() {
+export default function Home() {
   return (
-    <div> 
-      <Header/>
+    <div>
+      <Header />
       {/* <DataTableDemo></DataTableDemo> */}
-      <Hero/>
-      <Feature/>
-      <Cta/>
-      <Faq/>
-      <Footer/>
+      <Hero />
+      <Feature />
+      <Cta />
+      <Faq />
+      <Footer />
     </div>
   );
 }
@@ -31,21 +32,21 @@ const Hero = () => {
         <div className="mx-auto max-w-2xl py-8 sm:py-12 lg:py-16">
           <div className="text-center">
             <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-            Track Movements with Precision and Confidence 
+              Track Movements with Precision and Confidence
             </h1>
             <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-            Monitor every move with real-time tracking. Stay informed, stay ahead, and ensure you never lose sight of what matters most.
+              Monitor every move with real-time tracking. Stay informed, stay ahead, and ensure you never lose sight of what matters most.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
+              <Link
+                href="/signin"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Get started
-              </a>
-              <a href="#" className="text-sm/6 font-semibold text-gray-900">
+              </Link>
+              <Link href="#feature" className="text-sm/6 font-semibold text-gray-900">
                 Learn more <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -61,17 +62,17 @@ const Hero = () => {
 
 const Feature = () => {
   return (
-    <div className="overflow-hidden bg-white py-24 sm:py-32">
+    <div id={"feature"} className="overflow-hidden bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
               <h2 className="text-base/7 font-semibold text-indigo-600">Track Smarter, Not Harder</h2>
               <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Seamless Tracking Workflow
+                Seamless Tracking Workflow
               </p>
               <p className="mt-6 text-lg/8 text-gray-600">
-              Effortlessly monitor movements with an intuitive interface. Advanced tracking tools ensure precision, reliability, and peace of mind.
+                Effortlessly monitor movements with an intuitive interface. Advanced tracking tools ensure precision, reliability, and peace of mind.
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                 {features.map((feature) => (
@@ -100,14 +101,14 @@ const Feature = () => {
 }
 
 const Faq = () => {
-    return (
-        <div className="py-8 sm:py-12 lg:py-16 px-6">
-            <h1 className="text-center text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl my-8">
-                Frequently asked questions
-            </h1>
-            <CustomAccordion data={accordionData}/>
-        </div>
-    )
+  return (
+    <div id={'faq'} className="py-8 sm:py-12 lg:py-16 px-6">
+      <h1 className="text-center text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl my-8">
+        Frequently asked questions
+      </h1>
+      <CustomAccordion data={accordionData} />
+    </div>
+  )
 }
 
 const Cta = () => {
@@ -133,18 +134,9 @@ const Cta = () => {
               Boost Your Tracking Efficiency. Start Using Our App Today
             </h2>
             <p className="mt-6 text-pretty text-lg/8 text-gray-300">
-            Seamlessly monitor movements and optimize your workflow. Stay ahead with real-time insights and a user-friendly interface that empowers you to track with ease.
+              Seamlessly monitor movements and optimize your workflow. Stay ahead with real-time insights and a user-friendly interface that empowers you to track with ease.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-              <a
-                href="#"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Get started
-              </a>
-              <a href="#" className="text-sm/6 font-semibold text-white">
-                Learn more <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
           <div className="relative mt-16 h-80 lg:mt-8">
