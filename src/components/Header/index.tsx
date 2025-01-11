@@ -20,7 +20,6 @@ const Header = () => {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5 flex items-center gap-x-2">
             <h1 className="text-xl uppercase">Gps Tracker</h1>
-            <span className="sr-only">Your Company</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -54,23 +53,15 @@ const Header = () => {
           </button>
         </div>
        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/signin" className="text-sm/6 text-gray-900 hover:text-gray-500">
+          <Link href="/SignIn" className="text-sm/6 text-gray-900 hover:text-gray-500">
             Sign in <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </nav>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
-            </a>
+        <DialogPanel className="fixed inset-y-0 right-0 z-9999 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-end">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -84,7 +75,7 @@ const Header = () => {
             <div className="-my-6 divide-gray-500/10">
               <div className="py-6">
                 <Link
-                  href="/signin"
+                  href="/SignIn"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 text-gray-900 hover:bg-gray-50"
                 >
                   Sign In
