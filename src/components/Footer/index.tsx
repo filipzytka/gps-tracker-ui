@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="text-center text-white">
-            <div className="container p-6">
+        <footer className="bg-white text-center text-white">
+            <div className="container p-6 min-w-full">
                 <div className="flex flex-col items-center">
                     <div className="mb-9 flex justify-center">
                         <a className="mr-9 text-neutral-800 dark:text-neutral-200">

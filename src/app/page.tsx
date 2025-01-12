@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <>
       <Header />
-      {/* <DataTableDemo></DataTableDemo> */}
       <Hero />
       <Feature />
       <Cta />

@@ -38,145 +38,61 @@ import {
 } from "@/components/ui/table"
 import { NavigationData } from "@/api/navigation"
 
-const data: NavigationData[] = [
-  {
-    macAddress: "C4:D8:D5:14:28:DF",
-    date: "2025-01-01 12:00:00",
-    lat: 51.64953,
-    lon: 16.11902,
-    set: 1,
-    prec: 2,
-    alt: 30,
-    course: 90,
-    speed_kmph: 50,
-  },
-  {
-    macAddress: "C4:D8:D5:14:28:DF",
-    date: "2025-01-01 12:01:00",
-    lat: 51.64954,
-    lon: 16.11905,
-    set: 2,
-    prec: 2,
-    alt: 35,
-    course: 95,
-    speed_kmph: 55,
-  },
-  {
-    macAddress: "C4:D8:D5:14:28:DF",
-    date: "2025-01-01 12:02:00",
-    lat: 51.64956,
-    lon: 16.11907,
-    set: 3,
-    prec: 3,
-    alt: 40,
-    course: 100,
-    speed_kmph: 60,
-  },
-  {
-    macAddress: "C4:D8:D5:14:28:DF",
-    date: "2025-01-01 12:03:00",
-    lat: 51.64955,
-    lon: 16.11906,
-    set: 4,
-    prec: 3,
-    alt: 45,
-    course: 105,
-    speed_kmph: 65,
-  },
-  {
-    macAddress: "C4:D8:D5:14:28:DF",
-    date: "2025-01-01 12:04:00",
-    lat: 51.64954,
-    lon: 16.11904,
-    set: 5,
-    prec: 4,
-    alt: 50,
-    course: 110,
-    speed_kmph: 70,
-  },
-]
-
-
-export const columns: ColumnDef<NavigationData>[] = [
-  {
-    accessorKey: "macAddress",
-    header: "MAC Address",
-    cell: ({ row }) => <div>{row.getValue("macAddress")}</div>,
-  },
-  {
-    accessorKey: "date",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Date
-        <ArrowUpDown />
-      </Button>
-    ),
-    cell: ({ row }) => <div>{row.getValue("date")}</div>,
-  },
-  {
-    accessorKey: "lat",
-    header: "Latitude",
-    cell: ({ row }) => <div>{row.getValue("lat")}</div>,
-  },
-  {
-    accessorKey: "lon",
-    header: "Longitude",
-    cell: ({ row }) => <div>{row.getValue("lon")}</div>,
-  },
-  {
-    accessorKey: "set",
-    header: "Set",
-    cell: ({ row }) => <div>{row.getValue("set")}</div>,
-  },
-  {
-    accessorKey: "prec",
-    header: "Prec",
-    cell: ({ row }) => <div>{row.getValue("prec")}</div>,
-  },
-  {
-    accessorKey: "alt",
-    header: "Altitude",
-    cell: ({ row }) => <div>{row.getValue("alt")}</div>,
-  },
-  {
-    accessorKey: "course",
-    header: "Course",
-    cell: ({ row }) => <div>{row.getValue("course")}</div>,
-  },
-  {
-    accessorKey: "speed_kmph",
-    header: "Speed (km/h)",
-    cell: ({ row }) => <div>{row.getValue("speed_kmph")}</div>,
-  },
-];
-
-const DataTable = () => {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  )
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
-
-  const table = useReactTable({
-    data,
-    columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
+// Sample data with a single record
+const data = [
+    {
+      macAddress: "C4:D8:D5:14:28:DF",
+      name: "esp8266",
+      created: "2025-01-01 12:00:00",
     },
-  })
+  ]
+  
+  // Define column structure
+  export const columns: ColumnDef<typeof data[number]>[] = [
+    {
+      accessorKey: "macAddress",
+      header: "MAC Address",
+      cell: ({ row }) => <div>{row.getValue("macAddress")}</div>,
+    },
+    {
+      accessorKey: "name",
+      header: "Name",
+      cell: ({ row }) => <div>{row.getValue("name")}</div>,
+    },
+    {
+      accessorKey: "created",
+      header: ({ column }) => (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Created
+          <ArrowUpDown />
+        </Button>
+      ),
+      cell: ({ row }) => <div>{row.getValue("created")}</div>,
+    },
+  ]
+  
+  // DataTable component
+  const DeviceDataTable = () => {
+    const [sorting, setSorting] = React.useState<SortingState>([])
+    const [columnVisibility, setColumnVisibility] =
+      React.useState<VisibilityState>({})
+  
+    const table = useReactTable({
+      data,
+      columns,
+      onSortingChange: setSorting,
+      getCoreRowModel: getCoreRowModel(),
+      getPaginationRowModel: getPaginationRowModel(),
+      getSortedRowModel: getSortedRowModel(),
+      onColumnVisibilityChange: setColumnVisibility,
+      state: {
+        sorting,
+        columnVisibility,
+      },
+    })
 
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -294,4 +210,4 @@ const DataTable = () => {
   )
 }
 
-export default DataTable
+export default DeviceDataTable
