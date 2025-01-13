@@ -21,10 +21,6 @@ const devices = [
     name: "ESP-8266",
     macAddress: "fe:5f:33:28:15:0a",
   },
-  {
-    name: "Arduino UNO",
-    macAddress: "fe:4f:35:28:15:0a",
-  },
 ];
 
 const Dashboard = () => {

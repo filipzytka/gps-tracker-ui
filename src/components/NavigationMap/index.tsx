@@ -4,15 +4,15 @@ import { MapContainer, TileLayer, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { LatLngTuple } from "leaflet";
 import { useQuery } from "@tanstack/react-query";
-import { fetchNavigationData } from "@/api/navigation";
+import { fetchNavigationData, fetchPaginatedData } from "@/api/navigation";
 
 const NavigationMap = () => {
-  const { data: navData, refetch: navDataRefetch } = useQuery({
+  const { data: navData } = useQuery({
     queryKey: ["navigationData"],
     select: (newData) => ({
-      latLng: newData.map((nd): LatLngTuple => [nd.lat, nd.lon]),
+      latLng: newData.logs.map((nd): LatLngTuple => [nd.lat, nd.lon]),
     }),
-    queryFn: () => fetchNavigationData(1, 20),
+    queryFn: () => fetchPaginatedData(1, 50),
   });
   return (
     <MapContainer
@@ -22,9 +22,8 @@ const NavigationMap = () => {
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution="&copy; OpenStreetMap contributors"
       />
-      <Polyline positions={navData?.latLng ?? []}/>
+      <Polyline positions={navData?.latLng ?? []} />
     </MapContainer>
   );
 };

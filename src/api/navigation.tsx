@@ -26,6 +26,13 @@ export const fetchNavigationData = async (pageNumber: number, pageSize: number) 
     const { data } = await axiosObj.get<NavigationData[]>(
       `/gnss?pageNumber=${pageNumber}&pageSize=${pageSize}`
     );
+    return data;
+  };
+
+  export const fetchPaginatedData = async (pageNumber: number, pageSize: number) => {
+    const { data } = await axiosObj.get<NavigationDataResponse>(
+      `/gnss?pageNumber=${pageNumber}&pageSize=${pageSize}`
+    );
     console.log(data)
     return data;
   };
