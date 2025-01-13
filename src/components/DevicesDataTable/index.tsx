@@ -3,30 +3,23 @@
 import * as React from "react"
 import {
   ColumnDef,
-  ColumnFiltersState,
   SortingState,
   VisibilityState,
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown, ChevronDown } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 
 import {
   Table,
@@ -36,19 +29,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { NavigationData } from "@/api/navigation"
+import { useQuery } from "@tanstack/react-query"
+import { Device, fetchDeviceData } from "@/api/device"
 
-// Sample data with a single record
-const data = [
-    {
-      macAddress: "C4:D8:D5:14:28:DF",
-      name: "esp8266",
-      created: "2025-01-01 12:00:00",
-    },
-  ]
   
-  // Define column structure
-  export const columns: ColumnDef<typeof data[number]>[] = [
+  export const columns: ColumnDef<Device>[] = [
     {
       accessorKey: "macAddress",
       header: "MAC Address",
@@ -78,9 +63,13 @@ const data = [
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnVisibility, setColumnVisibility] =
       React.useState<VisibilityState>({})
+      const { data: navData } = useQuery({
+        queryKey: ["deviceData"],
+        queryFn: () => fetchDeviceData(),
+      });
   
     const table = useReactTable({
-      data,
+      data: navData ?? [],
       columns,
       onSortingChange: setSorting,
       getCoreRowModel: getCoreRowModel(),
