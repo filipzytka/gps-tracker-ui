@@ -12,10 +12,12 @@ import {
 import React from "react";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
+import { CustomDatePicker } from "@/components/DatePicker";
 
 const NavigationMap = dynamic(() => import("@/components/NavigationMap"), {
   ssr: false,
 });
+
 const devices = [
   {
     name: "ESP-8266",
@@ -30,7 +32,9 @@ const Dashboard = () => {
       <DefaultLayout>
         <Breadcrumb pageName="Map" />
         <div className="flex items-center justify-between mb-6">
-          <Button onClick={() => console.log()}>Refresh</Button>
+          <Button onClick={() => console.log()}>Update</Button>
+          <CustomDatePicker title="From"/>
+          <CustomDatePicker title="To"/>
           <Select>
             <SelectTrigger className="w-[180px] z-999">
               <SelectValue placeholder="Select Device" />
